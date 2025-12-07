@@ -12,6 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+
+       $middleware->web([
+    \App\Http\MIddleware\HandleInertiaRequests::class,
+    
+    ]); 
        
        $middleware->group('api', [
         // ...
